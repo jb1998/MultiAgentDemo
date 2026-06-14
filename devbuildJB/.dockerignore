@@ -1,0 +1,17 @@
+**/.venv
+**/venv
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.git
+**/.gitignore
+**/*.db
+**/dist
+**/.env
+**/agent-tools
+**/.cursor
+**/agent-transcripts
+**/IMPLEMENTATION_PLAN.md
+**/WOW_FACTORS.md
+**/ARCHITECTURE.md

@@ -1,0 +1,47 @@
+# Development stack with hot reload — run from project root:
+#   docker compose -f docker-compose.dev.yml up --build
+# Open http://localhost:5173
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: multiagent-backend-dev
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:///./data/storage.db
+      SECRET_KEY: ${SECRET_KEY:-dev-docker-secret-change-in-production}
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173,http://localhost
+      RATE_LIMIT: ${RATE_LIMIT:-100/minute}
+    volumes:
+      - ./backend:/app
+      - backend_dev_data:/app/data
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend.dev
+    container_name: multiagent-frontend-dev
+    environment:
+      VITE_API_URL: /api/v1
+      VITE_PROXY_TARGET: http://backend:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  backend_dev_data:

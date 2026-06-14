@@ -1,0 +1,5 @@
+# Deprecated — use docker-compose.yml at project root instead.
+#
+# From devbuildJB/:
+#   docker compose up --build          # production (nginx + uvicorn)
+#   docker compose -f docker-compose.dev.yml up --build   # dev hot reload
