@@ -61,6 +61,13 @@ Optional: `cp docker/.env.example .env` and set `SECRET_KEY`.
 **Default logins:** `admin` / `admin1234` (admin) · `user` / `user1234` · `test1` / `test1` (5-task quota)
 
 ---
+## Screenshots
+Front page: 
+<img width="1908" height="1014" alt="Screenshot 2026-06-14 at 6 49 17 PM" src="https://github.com/user-attachments/assets/0cc73016-4cbf-46df-a8f3-b7c6abc4c943" />
+<img width="922" height="759" alt="Screenshot 2026-06-14 at 6 49 33 PM" src="https://github.com/user-attachments/assets/3480f468-e2e2-4cc8-aec6-37d36bfe1725" />
+<img width="1663" height="958" alt="Screenshot 2026-06-14 at 6 49 51 PM" src="https://github.com/user-attachments/assets/0b362055-16a9-4f22-8165-179ca099b2b8" />
+<img width="1141" height="875" alt="Screenshot 2026-06-14 at 6 49 58 PM" src="https://github.com/user-attachments/assets/8e8aab4c-d2f0-4fbe-980c-3b3cdf60eb5d" />
+<img width="1087" height="955" alt="Screenshot 2026-06-14 at 6 50 08 PM" src="https://github.com/user-attachments/assets/84b1dccd-8faf-46d1-8a4c-6e91f81e6e27" />
 
 ## Dependencies
 
